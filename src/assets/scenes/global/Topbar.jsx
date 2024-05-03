@@ -10,6 +10,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import { SettingsOutlined } from "@mui/icons-material";
 
 const Topbar = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const colorMode = useContext(ColorModeContext);
   return (
     <div>
       
