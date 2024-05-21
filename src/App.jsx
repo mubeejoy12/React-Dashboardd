@@ -13,12 +13,14 @@ import Dashboard from "./assets/scenes/Dashboard";
 // import Pie from "./scenes/global/pie";
 // import FAQ from "./scenes/global/Faq";
 // import Geography from "./scenes/global/geography";
-// import Calender from "./scenes/global/calender";
+
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "./assets/scenes/global/Sidebar";
 import Team from "./assets/scenes/team";
-import Contact from "./assets/scenes/contacts"
+import Contact from "./assets/scenes/contacts";
 import Invoices from "./assets/scenes/invoices";
+import Calender from "./assets/scenes/calender";
+// import Form from "./assets/scenes/form";
 
 
 function App() {
@@ -38,12 +40,12 @@ function App() {
               <Route path="/contacts" element={<Contact />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/calendar" element={<Calender/>}/>
+              {/* <Route path="/form" element={<Form/>}/> */}
               {/* <Route path="bar" element={<Bar/>}/> */}
               {/* <Route path="pie" element={<Pie/>}/> */}
               {/* <Route path="line" element={<Line/>}/> */}
               {/* <Route path="faq" element={<FAQ/>}/> */}
               {/* <Route path="geography" element={<Geography/>}/> */}
-              {/* <Route path="calender" element={<Calender/>}/> */}
             </Routes>
           </main>
         </div>
