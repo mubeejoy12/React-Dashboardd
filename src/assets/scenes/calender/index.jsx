@@ -5,15 +5,13 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import { formatDate } from '@fullcalendar/core'
+import { formatDate } from "@fullcalendar/core";
 import {
   Box,
   List,
   ListItem,
   Typography,
   useTheme,
-  AppBar,
-  Toolbar,
   ListItemText,
 } from "@mui/material";
 import Header from "../../components/Header";
@@ -22,7 +20,7 @@ import { tokens } from "../../../theme";
 const Calender = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const { currentEvent, setCurrentEvent } = useState([]);
+  const [currentEvent, setCurrentEvent] = useState([]);
 
   const handleDatelick = (selected) => {
     const title = prompt("Please enter a new title for your event");
@@ -49,40 +47,81 @@ const Calender = () => {
 
   return (
     <Box m={"20px"}>
-      <Header title={"CALENDER"} subtitle={"Full Calender Interative Page"} />
-      {/* // calender side */}
-      <Box
-        flex={"1 1 20%"}
-        backgroundColor={colors.primary[400]}
-        p={"15px"}
-        borderRadius={"4px"}
-      >
-        <Typography variant="h5">Events</Typography>
-        <List>
-          {/* {currentEvent.map((event) => {
-            <ListItem
-              key={event.id}
-              sx={{
-                backgroundColor: colors.greenAccent[500],
-                margin: "10px 0",
-                borderRadius: "2px",
-              }}
-            >
-              <ListItemText
-                primary={event.title}
-                secondary={
-                  <Typography>
-                    {formatDate(event.start, {
-                      year: "nemerica",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </Typography>
-                }
-              ></ListItemText>
-            </ListItem>;
-          })} */}
-        </List>
+      <Header title={"Calender"} subtitle={"Full Calender Interative Page"} />
+
+      <Box display="flex" justifyContent="space-between">
+        {/* // calender side */}
+        <Box
+          flex={"1 1 20%"}
+          backgroundColor={colors.primary[400]}
+          p={"15px"}
+          borderRadius={"4px"}
+        >
+          <Typography variant="h5">Events</Typography>
+          <List>
+            {currentEvent.map((event) => (
+              <ListItem
+                key={event.id}
+                sx={{
+                  backgroundColor: colors.greenAccent[500],
+                  margin: "10px 0",
+                  borderRadius: "2px",
+                }}
+              >
+                <ListItemText
+                  primary={event.title}
+                  secondary={
+                    <Typography>
+                      {formatDate(event.start, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </Typography>
+                  }
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        {/* CALENDAR */}
+        <Box flex="1 1 100%" ml="15px">
+          <FullCalendar
+            height="75vh"
+            plugins={[
+              dayGridPlugin,
+              timeGridPlugin,
+              interactionPlugin,
+              listPlugin,
+            ]}
+            headerToolbar={{
+              left: "prev,next today",
+              center: "title",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+            }}
+            initialView="dayGridMonth"
+            editable={true}
+            selectable={true}
+            selectMirror={true}
+            dayMaxEvents={true}
+            select={handleDatelick}
+            eventClick={handleEventClick}
+            eventsSet={(events) => setCurrentEvent(events)}
+            initialEvents={[
+              {
+                id: "12315",
+                title: "All-day event",
+                date: "2022-09-14",
+              },
+              {
+                id: "5123",
+                title: "Timed event",
+                date: "2022-09-28",
+              },
+            ]}
+          />
+        </Box>
       </Box>
     </Box>
   );
