@@ -20,8 +20,11 @@ import Team from "./assets/scenes/team";
 import Contact from "./assets/scenes/contacts";
 import Invoices from "./assets/scenes/invoices";
 import Calender from "./assets/scenes/calender";
-// import Form from "./assets/scenes/form";
-
+import Faq from "./assets/scenes/faq";
+import Bar from "./assets/scenes/bar";
+import Pie from "./assets/scenes/pie";
+import Line from "./assets/scenes/line";
+import Geography from "./assets/scenes/geography";
 
 function App() {
   const [theme, colorMode] = useMode();
