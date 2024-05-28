@@ -1,19 +1,8 @@
 import "./App.css";
 import { ColorModeContext, useMode } from "./theme";
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import Topbar from "./assets/scenes/global/Topbar";
 import Dashboard from "./assets/scenes/Dashboard";
-// import Sidebar from "./scenes/global/Sidebar";
-// import Team from "./scenes/global/team";
-// import Invoices from "./scenes/global/invoices";
-// import Contacts from "./scenes/global/contacts";
-// import Bar from "./scenes/global/bar";
-// import Form from "./scenes/global/form";
-// import Line from "./scenes/global/line";
-// import Pie from "./scenes/global/pie";
-// import FAQ from "./scenes/global/Faq";
-// import Geography from "./scenes/global/geography";
-
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "./assets/scenes/global/Sidebar";
 import Team from "./assets/scenes/team";
