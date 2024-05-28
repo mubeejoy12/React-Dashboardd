@@ -25,6 +25,7 @@ import Bar from "./assets/scenes/bar";
 import Pie from "./assets/scenes/pie";
 import Line from "./assets/scenes/line";
 import Geography from "./assets/scenes/geography";
+import Form from "./assets/scenes/form";
 
 function App() {
   const [theme, colorMode] = useMode();
