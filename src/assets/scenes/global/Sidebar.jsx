@@ -43,7 +43,9 @@ const Sidebar = () => {
 
   return (
     <Box
-      sx={{
+      sx={{height: "100vh", 
+        display: "flex",
+        flexDirection: "column",
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
