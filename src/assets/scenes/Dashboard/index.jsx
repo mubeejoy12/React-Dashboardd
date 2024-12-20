@@ -1,4 +1,11 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Typography,
+  useTheme,
+  Grid,
+} from "@mui/material";
 import { tokens } from "../../../theme";
 import { mockTransactions } from "../../../Data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
@@ -8,11 +15,10 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
-import GeographyChart from  "../../components/GeographyChart";
+import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
-import StatBox  from "../../components/StartBox";
+import StatBox from "../../components/StartBox";
 import ProgressCircle from "../../components/ProgressCircle";
-
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -41,19 +47,15 @@ const Dashboard = () => {
       </Box>
 
       {/* GRID & CHARTS */}
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="10px"
-      >
+      <Grid container spacing={2}>
         {/* ROW 1 */}
+        <Grid item xs={12} sm={6} md={3}>
         <Box
-          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
+            height="140px"
         >
           <StatBox
             title="12,361"
@@ -67,12 +69,14 @@ const Dashboard = () => {
             }
           />
         </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
         <Box
-          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
+            height="140px"
         >
           <StatBox
             title="431,225"
@@ -86,12 +90,14 @@ const Dashboard = () => {
             }
           />
         </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
         <Box
-          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
+            height="140px"
         >
           <StatBox
             title="32,441"
@@ -105,12 +111,14 @@ const Dashboard = () => {
             }
           />
         </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
         <Box
-          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
+            height="140px"
         >
           <StatBox
             title="1,325,134"
@@ -124,17 +132,15 @@ const Dashboard = () => {
             }
           />
         </Box>
+        </Grid>
 
         {/* ROW 2 */}
-        <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-        >
+        <Grid item xs={12} md={8}>
+          <Box backgroundColor={colors.primary[400]} height="100%">
           <Box
             mt="25px"
             p="0 30px"
-            display="flex "
+              display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
@@ -166,11 +172,12 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
+            height="100%"
         >
           <Box
             display="flex"
@@ -180,7 +187,11 @@ const Dashboard = () => {
             colors={colors.grey[100]}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              <Typography
+                color={colors.grey[100]}
+                variant="h5"
+                fontWeight="600"
+              >
               Recent Transactions
             </Typography>
           </Box>
@@ -216,14 +227,11 @@ const Dashboard = () => {
             </Box>
           ))}
         </Box>
+        </Grid>
 
         {/* ROW 3 */}
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="30px"
-        >
+        <Grid item xs={12} md={4}>
+          <Box backgroundColor={colors.primary[400]} p="30px" height="100%">
           <Typography variant="h5" fontWeight="600">
             Campaign
           </Typography>
@@ -241,14 +249,14 @@ const Dashboard = () => {
             >
               $48,352 revenue generated
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+              <Typography>
+                Includes extra misc expenditures and costs
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-        >
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Box backgroundColor={colors.primary[400]} height="100%">
           <Typography
             variant="h5"
             fontWeight="600"
@@ -260,11 +268,12 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"
+            height="100%"
         >
           <Typography
             variant="h5"
@@ -277,7 +286,8 @@ const Dashboard = () => {
             <GeographyChart isDashboard={true} />
           </Box>
         </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
