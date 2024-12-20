@@ -1,10 +1,7 @@
-
-
-
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../../theme";
-import { mockDataTeam } from "../../../Data/mockData"
+import { mockDataTeam } from "../../../Data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
@@ -13,8 +10,10 @@ import Header from "../../components/Header";
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: "ID", flex: 0.5 },
     {
       field: "name",
       headerName: "Name",
@@ -27,6 +26,7 @@ const Team = () => {
       type: "number",
       headerAlign: "left",
       align: "left",
+      flex: 0.5,
     },
     {
       field: "phone",
@@ -45,7 +45,7 @@ const Team = () => {
       renderCell: ({ row: { access } }) => {
         return (
           <Box
-            width="60%"
+            width={isSmallScreen ? "100%" : "60%"}
             m="0 auto"
             p="5px"
             display="flex"
